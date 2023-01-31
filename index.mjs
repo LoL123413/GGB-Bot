@@ -1,4 +1,4 @@
-import DiscordJS, { IntentsBitField, PermissionFlagsBits, ChannelType  } from'discord.js'
+import DiscordJS, { IntentsBitField, PermissionFlagsBits, ChannelType, Activity, ActivityType  } from'discord.js'
 import dotenv from 'dotenv'
 dotenv.config()
 import * as fs from 'fs'
@@ -15,11 +15,12 @@ client.on('ready', () => {
 
   setInterval(() => {
     const coun = client.guilds.cache.get('936094927601954837').memberCount
+    const coun2 = 100000-coun
     const activities = [
-      `${coun} members 📗`, `${100000-coun} to 100k! 📗`
+      `${coun.toLocaleString()} members 📗`, `${coun2.toLocaleString()} to 100k! 📗`
     ]
     const status = activities[Math.floor(Math.random() * activities.length)]
-    client.user.setPresence({activities: [{ name: `${status}`}]})
+    client.user.setPresence({activities: [{ name: `${status}`, type: ActivityType.Watching}]})
   }, 10000)
 
 
