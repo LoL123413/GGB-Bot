@@ -50,7 +50,7 @@ client.on('ready', () => {
                   value: "0000"
               },
               {
-                  name: "Maths",
+                  name: "Math",
                   value: "0001"
               },
               {
